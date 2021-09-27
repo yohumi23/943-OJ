@@ -7,7 +7,7 @@ int find(int x){
 	return x == a[x] ? x : a[x] = find(a[x]);
 }
 int movex[] = {-1, -1, -1, 0, 0, 1, 1, 1};
-int movey[] = {0, 1, -1, 1, -1, 0, 1, -1};
+int movey[] = {0, 1, -1, 1, -1, 0, 1, -1};//方向数组
  
 int main(void){
 	int n, m;//n行,m列矩阵
