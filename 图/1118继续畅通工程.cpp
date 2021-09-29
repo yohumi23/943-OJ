@@ -2,22 +2,22 @@
 using namespace std;
 const int N = 101;
 
-struct edge{//±ß½áµã 
-	int x, y;//¶Ëµã
-	int w;//È¨Öµ
+struct edge{//è¾¹ç»“ç‚¹ 
+	int x, y;//ç«¯ç‚¹
+	int w;//æƒå€¼
 };
-int fa[N];//¶¨Òå²¢²é¼¯
-int get(int x){//ÕÒ¸¸Ç× 
+int fa[N];//å®šä¹‰å¹¶æŸ¥é›†
+int get(int x){//æ‰¾çˆ¶äº² 
 	if(x==fa[x]) return x;
 	return fa[x] = get(fa[x]);
 } 
-void Kruskal(vector<edge> e, int n){//¼ÙÉè±ß½áµãÒÑ¾­ÅÅºÃĞò 
-	for(int i = 1; i <= n; ++i) fa[i] = i;//³õÊ¼»¯²¢²é¼¯
+void Kruskal(vector<edge> e, int n){//å‡è®¾è¾¹ç»“ç‚¹å·²ç»æ’å¥½åº 
+	for(int i = 1; i <= n; ++i) fa[i] = i;//åˆå§‹åŒ–å¹¶æŸ¥é›†
 	int ans = 0;
 	for(int i = 0; i < e.size(); ++i){
 		int fx = get(e[i].x);
 		int fy = get(e[i].y);
-		if(fx != fy){//ÕâÁ½¸ö¶ËµãÃ»ÓĞÁ¬Í¨£¬ĞèÒªºÏ²¢ 
+		if(fx != fy){//è¿™ä¸¤ä¸ªç«¯ç‚¹æ²¡æœ‰è¿é€šï¼Œéœ€è¦åˆå¹¶ 
 			ans += e[i].w;
 			fa[fx] = fy;
 		}
@@ -28,17 +28,17 @@ int main(void){
 	int i, n;
 	while(~scanf("%d", &n)) {
 		if(n==0) break;
-		int m= n*(n-1)/2;//±ßµÄÊıÁ¿ 
+		int m= n*(n-1)/2;//è¾¹çš„æ•°é‡ 
 		vector<edge> e(m);
 		for(i = 0; i < m; ++i){
 			scanf("%d%d%d", &e[i].x, &e[i].y, &e[i].w);
 			int p;
 			scanf("%d",&p);
-			if(p==1) e[i].w = 0;//Ãâ·ÑĞŞ½¨ 	
+			if(p==1) e[i].w = 0;//å…è´¹ä¿®å»º 	
 		}
 		sort(e.begin(), e.end(), [](edge a, edge b)->bool{return a.w<b.w;});
-		//¿¼ÊÔÊ±Ö»ĞèĞ´sort(e.begin(), e.end());ÔÙ¼Ó¸ö°´È¨Öµ¶Ô±ß½áµã½øĞĞÅÅĞò
-		//»òÕßÄ¬ÈÏÊÇÅÅºÃĞòµÄ 
+		//è€ƒè¯•æ—¶åªéœ€å†™sort(e.begin(), e.end());å†åŠ ä¸ªæŒ‰æƒå€¼å¯¹è¾¹ç»“ç‚¹è¿›è¡Œæ’åº
+		//æˆ–è€…é»˜è®¤æ˜¯æ’å¥½åºçš„ 
 		Kruskal(e, n);
 	}
 	

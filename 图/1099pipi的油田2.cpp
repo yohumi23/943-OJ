@@ -5,26 +5,26 @@ bool vis[N][N];
 int m, n;
 int dx[] = {-1, -1, -1, 0, 0, 1, 1, 1};
 int dy[] = {0, 1, -1, 1, -1, 0, 1, -1};
-char mp[N][N];//µØÍ¼
-void dfs(int x, int y){//µ±Ç°·ÃÎÊµ½x,yµã 
+char mp[N][N];//åœ°å›¾
+void dfs(int x, int y){//å½“å‰è®¿é—®åˆ°x,yç‚¹ 
 	vis[x][y] = 1;
 	for(int i = 0; i < 8; ++i){
 		int nx = x + dx[i];
 		int ny = y + dy[i];
-		//µÃµ½µÄĞÂ×ø±ê
+		//å¾—åˆ°çš„æ–°åæ ‡
 		if(nx>=0 && nx<m && ny>=0 && ny<n && !vis[nx][ny]  &&  mp[nx][ny] == '@' ) {
-			//ÏÈÅĞ¶Ï±ß½ç·¶Î§
-			dfs(nx, ny); //ËÑË÷ÏàÁÚµÄÓÍÌï 
+			//å…ˆåˆ¤æ–­è¾¹ç•ŒèŒƒå›´
+			dfs(nx, ny); //æœç´¢ç›¸é‚»çš„æ²¹ç”° 
 		}
 	} 
 } 
 void dfsTraval(){
 	int i, j, cnt = 0;
-	memset(vis, 0, sizeof(vis));//±ê¼ÇÊı×é³õÊ¼»¯²»ÄÜÍü
+	memset(vis, 0, sizeof(vis));//æ ‡è®°æ•°ç»„åˆå§‹åŒ–ä¸èƒ½å¿˜
 	for(i = 0; i < m; ++i){
 		for(j = 0; j < n; ++j){
 			if(!vis[i][j] && mp[i][j]=='@'){
-				dfs(i, j);//Ìø³öËµÃ÷µ±Ç°Á¬Í¨Í¼±éÀúÍê±Ï 
+				dfs(i, j);//è·³å‡ºè¯´æ˜å½“å‰è¿é€šå›¾éå†å®Œæ¯• 
 				cnt++;
 			}
 		}

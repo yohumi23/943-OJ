@@ -5,36 +5,36 @@ struct MGraph{
 	int vexnum;
 	int arcs[N][N];
 }; 
-int vis[N];//±ê¼ÇÊı×é
+int vis[N];//æ ‡è®°æ•°ç»„
 int path[N], cnt = 0;
-//ÓÃÉî¶ÈÓÅÏÈËÑË÷Ñ°ÕÒµ½µãsµ½µãtµÄËùÓĞÂ·¾¶ 
+//ç”¨æ·±åº¦ä¼˜å…ˆæœç´¢å¯»æ‰¾åˆ°ç‚¹såˆ°ç‚¹tçš„æ‰€æœ‰è·¯å¾„ 
 void dfs(MGraph G, int s, int t){
-	vis[s] =  1;//µ±Ç°½áµãÕıÔÚ±»·ÃÎÊ
-	path[cnt++] = s;//¼ÇÂ¼µ±Ç°µã
-	if(s == t){//ÒÑ¾­µ½´ïÖÕµã 
-		for(int i = 0; i < cnt; ++i) printf("%d ", path[i]);//°ÑpathÖĞµÄËùÓĞÂ·¾¶½áµãÊä³ö 
+	vis[s] =  1;//å½“å‰ç»“ç‚¹æ­£åœ¨è¢«è®¿é—®
+	path[cnt++] = s;//è®°å½•å½“å‰ç‚¹
+	if(s == t){//å·²ç»åˆ°è¾¾ç»ˆç‚¹ 
+		for(int i = 0; i < cnt; ++i) printf("%d ", path[i]);//æŠŠpathä¸­çš„æ‰€æœ‰è·¯å¾„ç»“ç‚¹è¾“å‡º 
 		printf("\n");
-		vis[s] = 0;//Ã»ÓĞÕâ¾ä»°£¬¾ÍÊÇÖ»ÕÒÒ»ÌõÂ·¾¶
-		//»ØËİ
+		vis[s] = 0;//æ²¡æœ‰è¿™å¥è¯ï¼Œå°±æ˜¯åªæ‰¾ä¸€æ¡è·¯å¾„
+		//å›æº¯
 		cnt--;
 		return; 
 	} 
-	for(int i = 0; i < G.vexnum; ++i){//±éÀúÁÚ½Óµã 
+	for(int i = 0; i < G.vexnum; ++i){//éå†é‚»æ¥ç‚¹ 
 		if(G.arcs[s][i] && !vis[i]) dfs(G, i, t);
 	}
 	vis[s] = 0;
-	cnt--;//»ØËİ 
+	cnt--;//å›æº¯ 
 } 
 
 
 int main(void){
 	int n, m;
-	//n¸öµã£¬m Ìõ±ß
+	//nä¸ªç‚¹ï¼Œm æ¡è¾¹
 	MGraph G;
 	memset(G.arcs, 0, sizeof(G.arcs));
 	scanf("%d %d", &n, &m);
 	G.vexnum = n;
-	while(m--){//ÊäÈëmÌõ±ß 
+	while(m--){//è¾“å…¥mæ¡è¾¹ 
 		int x, y;
 		scanf("%d%d", &x, &y);
 		G.arcs[x][y] = 1; 

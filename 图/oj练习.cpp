@@ -1,11 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
-//pipiµÄÓÍÌï 
+//pipiçš„æ²¹ç”° 
 const int N = 101;
-char mp[N][N];//´æ´¢ÊäÈëµÄ¾ØÕó 
+char mp[N][N];//å­˜å‚¨è¾“å…¥çš„çŸ©é˜µ 
 int dx[] = {-1, -1, -1, 0, 0, 1, 1, 1};
 int dy[] = {1, -1, 0, 1, -1, 1, -1, 0};
-int fa[N*N];//²¢²é¼¯
+int fa[N*N];//å¹¶æŸ¥é›†
 int get(int x){
 	return x==fa[x]? x : fa[x] = get(fa[x]);
 } 
