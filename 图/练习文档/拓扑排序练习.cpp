@@ -1,14 +1,15 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int N = 101;
+const int N = 51;
 struct MGraph{
 	int vexnum;
 	int arcs[N][N];
 };
 void topSort(MGraph G){
 	int n = G.vexnum, t;
-	int path[N], cnt = 0;
+	stack<int> s;
 	vector<int> id(n);
+	vector<int> ans;
 	for(int i=0; i<n; ++i) id[i] = 0;
 	for(int i=0; i<n; ++i){
 		for(int j=0; j<n; ++j){
@@ -16,27 +17,25 @@ void topSort(MGraph G){
 		}
 	}
 	for(int i=0; i<n; ++i){
-		if(id[i] == 0) t = i;
+		if(id[i] == 0) s.push(i);//把源点入栈 
 	}
-	path[cnt++] = t;
-	stack<int> s;
-	s.push(t);
 	while(!s.empty()){
-		int num = 1;
 		t = s.top();
 		s.pop();
 		id[t]--;
+		ans.push_back(t);
 		for(int i=0; i<n; ++i){
-			if(G.arcs[t][i]) id[i]--;
-			s.push(i);
-			path[cnt++] = i;
+			if(G.arcs[t][i]){
+				id[i]--;
+				if(!id[i]) s.push(i);
+			}
 		}
 	}
-	if(cnt < G.vexnum) printf("ERROR\n");
+	if(ans.size() < n) puts("ERROR");
 	else{
-		for(int i=0; i<cnt; ++i) printf("%d ", path[i]);
+		for(int i=0; i<n; ++i) printf("%d ", ans[i]);
 	} 
-	putchar('\n');
+	
 	
 }
 int main(void){
