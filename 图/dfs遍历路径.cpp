@@ -7,11 +7,13 @@ struct MGraph{
 }; 
 int vis[N];//标记数组
 int path[N], cnt = 0;
+bool flag = false;
 //用深度优先搜索寻找到点s到点t的所有路径 
 void dfs(MGraph G, int s, int t){
 	vis[s] =  1;//当前结点正在被访问
 	path[cnt++] = s;//记录当前点
 	if(s == t){//已经到达终点 
+		flag = true;
 		for(int i = 0; i < cnt; ++i) printf("%d ", path[i]);//把path中的所有路径结点输出 
 		printf("\n");
 		vis[s] = 0;//没有这句话，就是只找一条路径
@@ -41,6 +43,7 @@ int main(void){
 		G.arcs[y][x] = 1; 
 	}
 	dfs(G, 0, n-1);
+	if(!flag) printf("û�����·��\n");
 	return 0;
 }
 
