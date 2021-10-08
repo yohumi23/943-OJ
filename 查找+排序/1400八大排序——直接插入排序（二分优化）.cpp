@@ -13,7 +13,7 @@ void InsertSort(int a[], int n){
 		}
 		for(j=i-1; j>=r+1; --j){
 			a[j+1] = a[j];
-		}
+		}1]
 		a[r+1] = a[0];
 	} 
 	for(i=1; i<=n; ++i){
