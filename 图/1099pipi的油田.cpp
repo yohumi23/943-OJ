@@ -34,8 +34,9 @@ int main(void){
 							int index_1 = find(i*m + j);
 							int index_2 = find(nowi*m + nowj);
 							if(index_1 != index_2){
-								a[index_1] = index_2;
 								amount--;
+								a[index_1] = index_2;
+								
 							} 
 						}
 					}

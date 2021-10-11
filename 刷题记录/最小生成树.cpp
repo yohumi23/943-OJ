@@ -1,32 +1,3 @@
-﻿```cpp
-#include<bits/stdc++.h>
-using namespace std;
-const int N = 100000;
-int main(void){
-	char ch[N];
-    scanf("%s", ch);
-	cout << strlen(ch) << endl;
-	return 0;
-}
-```
-
-* 收获：strlen()返回的是真实的字符串长度，不带'\n'
-
-* 字符串数组常规建立方式。
-
-
-
-* vector<int> a(n)   初始化所有元素都为0
-
-
-
-* 输出格式一定要看好，比如：多组输入时的结构是不是要换个行！！！！
-
-
-
-
-
-```cpp
 #include<bits/stdc++.h>
 #define inf 99999
 using namespace std;
@@ -84,6 +55,3 @@ int main(void){
 	return 0;
 }
 
-```
-
-* 在main中，我 注释的代码是错误的，首先要保证所有的输入都接受到图中，再进行修改。而不是在接收的时候做判断，这样很容易出问题。
