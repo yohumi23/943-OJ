@@ -1,26 +1,26 @@
 /*
-8.����һ���Թ���ͼ���õ�ͼ��ʶ���Թ�������λ�����꣬����
-֪�Թ���λ�ô���״̬��Ϣ�����ô���ǽ����·���ƶ�����Ϊ�����ϣ�������4������
-�����һ�����ݽṹ���Թ����д洢��������㷨������������Թ������һ������ڵ����ڵ�ͨ·��
-��ó�û��ͨ·�Ľ���
+8.给定一张迷宫地图，该地图标识了迷宫各处的位置坐标，并已
+知迷宫各位置处的状态信息，即该处是墙还是路，移动方向为东，南，西，北4个方向。
+请设计一个数据结构对迷宫进行存储，并设计算法对任意给定的迷宫，求出一条从入口到出口的通路，
+或得出没有通路的结论
 */
 
-//��һ���ַ�����洢�Թ�������'-'��ʾ·�� '#'��ʾǽ
+//用一个字符数组存储迷宫，其中'-'表示路， '#'表示墙
  
 #include<bits/stdc++.h>
 using namespace std;
 const int N = 101;
-char Maze[N][N];//�ַ�����洢�Թ� 
-bool vis[N][N] = {false};//�������飬trueΪ�ѷ���
-int m, n;//������m�У�n��
+char Maze[N][N];//字符数组存储迷宫 
+bool vis[N][N] = {false};//访问数组，true为已访问
+int m, n;//数组有m行，n列
 int travel[4][2] = {{0, 1}, {0, -1}, {-1, 0}, {1, 0}};
 typedef struct pos{
-	int x, y;//��¼���� 
+	int x, y;//记录坐标 
 }pos; 
-//pos path[N];��Ŀ���ˣ�Ҫ�ܺ������еĵ㣬���룡���� 
+//pos path[N];数目少了，要能涵盖所有的点，起码！！！ 
 pos path[N*N];
 int cnt = 0;
-//�β�Ҳд�������� 
+//形参也写得有问题 
 void dfs(Maze M, pos s, pos t){
 	vis[s.x][s.y] = 1;
 	path[cnt++]  = s;

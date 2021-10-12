@@ -1,11 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
 int cal(string s){
-	stack<char> op;//×Ö·ûÕ»´æÔËËã·ûºÅ 
-	stack<int> num;//Êı×ÖÕ»
-	int now = 0;//µ±Ç°µÄÊı×Ö 
+	stack<char> op;//å­—ç¬¦æ ˆå­˜è¿ç®—ç¬¦å· 
+	stack<int> num;//æ•°å­—æ ˆ
+	int now = 0;//å½“å‰çš„æ•°å­— 
 	for(int i=0; i<s.size(); ++i){
-		if(s[i]>='0' && s[i]<='9') now = now*10 + s[i] - '0';//ÕâÒ»²½½«×Ö·û´®×ª»»³ÉÊı×Ö£¡£¡£¡
+		if(s[i]>='0' && s[i]<='9') now = now*10 + s[i] - '0';//è¿™ä¸€æ­¥å°†å­—ç¬¦ä¸²è½¬æ¢æˆæ•°å­—ï¼ï¼ï¼
 		else{
 			if(s[i] == '+' || s[i] == '-'){
 				while(!op.empty() && )

@@ -2,7 +2,7 @@
 using namespace std;
 const int N = 101;
 /**
-不要把get()里的while写成if 
+涓嶈鎶奼et()閲岀殑while鍐欐垚if 
 
 */ 
 char mp[N][N];
@@ -10,7 +10,7 @@ int fa[N*N];
 int dx[] = {-1, -1, -1, 0, 0, 1, 1, 1};
 int dy[] = {1, -1, 0, 1, -1, 1, -1, 0};
 int get(int x){
-	while(x != fa[x]) x = fa[x];//这里是while不是if 
+	while(x != fa[x]) x = fa[x];//杩欓噷鏄痺hile涓嶆槸if 
 	return x;
 }
 int main(void){

@@ -23,7 +23,7 @@ void Dijkstra(MGraph G, int s){
 		}
 		
 		
-		//�����ǰ�����Ҳ���ͨ��δ���ʵ��·���ˣ���ôʣ�µ�·�Ͳ������ˣ�ֱ�ӵ�����ӡ���� 
+		//如果当前集合找不到通往未访问点的路径了，那么剩下的路就不访问了，直接调到打印！！ 
 		if(min == inf){
 			for(int i=0; i<n; ++i){
 				if(!vis[i]) d[i] = -1;
@@ -49,7 +49,7 @@ void Dijkstra(MGraph G, int s){
 }
 int main(void){
 	MGraph G;
-	int n, s;//n�Ƕ�����,s�����
+	int n, s;//n是顶点数,s是起点
 	scanf("%d%d", &n, &s);
 	G.vexnum = n;
 	for(int i=0; i<n; ++i){
