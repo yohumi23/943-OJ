@@ -21,7 +21,7 @@ void Insert(Polynomial &L, float c, int e){
 		}
 	}
 	else{
-		Term* t = new Term;//tÒªÈ¡µØÖ·£¡£¡£¡ 
+		Term* t = new Term;//tè¦å–åœ°å€ï¼ï¼ï¼ 
 		pre->next = t;
 		t->next = p;
 	}
