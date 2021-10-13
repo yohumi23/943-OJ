@@ -27,7 +27,7 @@ typedef  List Polynomial ;
 //	}
 //}
 void Insert(Polynomial &L, float c, int e){
-    //ÔÚ¶àÏîÊ½Á´±íLÖÐ²åÈëÏµÊýÎªc£¬Ö¸ÊýÎªeµÄÐÂÏî
+    //åœ¨å¤šé¡¹å¼é“¾è¡¨Lä¸­æ’å…¥ç³»æ•°ä¸ºcï¼ŒæŒ‡æ•°ä¸ºeçš„æ–°é¡¹
     Term * pre = L, *p = L->next; 
     while(p!=NULL && p->exp < e){
         pre = p;

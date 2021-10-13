@@ -3,7 +3,7 @@ using namespace std;
 void reverse(int *L, int n){
 	int front = 0, rear = n-1;
 	int tmp;
-	while(front < rear){//我这里把不等号改成了小于号就通过了，不知道why?????? 
+	while(front < rear){//鎴戣繖閲屾妸涓嶇瓑鍙锋敼鎴愪簡灏忎簬鍙峰氨閫氳繃浜嗭紝涓嶇煡閬搘hy?????? 
 		tmp = L[front];
 		L[front] = L[rear];
 		L[rear] = tmp;

@@ -17,7 +17,7 @@ int main(void){
 		}
 	}
 //	cout << st.size() << endl;
-	while(!st.empty()){//这里是多余的左括号，没匹配成功的
+	while(!st.empty()){//杩欓噷鏄浣欑殑宸︽嫭鍙凤紝娌″尮閰嶆垚鍔熺殑
 		del[st.top()] = 1;
 		st.pop();
 	}

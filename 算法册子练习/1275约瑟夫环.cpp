@@ -2,26 +2,26 @@
 using namespace std;
 struct node{
 	int id;
-	node *pre, *next;//Ç°Çı£¬ºó¼Ì 
+	node *pre, *next;//å‰é©±ï¼Œåç»§ 
 	node(int x) : id(x) {}
 };
 
 int main(void){
 	int n, m;
 	scanf("%d%d", &n, &m);
-	node *head = new node(1), *last = head, *now;//ÎªÁË·½±ã½¨»·£¬headÎªÖ¸Ïò1µÄ½áµã
-	for(int i=2; i<=n; ++i){//´Ó±àºÅ2µ½n½¨ĞÂ½áµã
-		now = new node(i);//nowÖ¸Ïòµ±Ç°´´½¨µÄ½áµã
-		now->pre = last;//½«nowµÄÇ°ÇıÖ¸Ïòlast
-		last->next = now;//½«lastµÄºó¼ÌÖ¸Ïònow
-		last = now;//½«last¸³Öµ³Énow
+	node *head = new node(1), *last = head, *now;//ä¸ºäº†æ–¹ä¾¿å»ºç¯ï¼Œheadä¸ºæŒ‡å‘1çš„ç»“ç‚¹
+	for(int i=2; i<=n; ++i){//ä»ç¼–å·2åˆ°nå»ºæ–°ç»“ç‚¹
+		now = new node(i);//nowæŒ‡å‘å½“å‰åˆ›å»ºçš„ç»“ç‚¹
+		now->pre = last;//å°†nowçš„å‰é©±æŒ‡å‘last
+		last->next = now;//å°†lastçš„åç»§æŒ‡å‘now
+		last = now;//å°†lastèµ‹å€¼æˆnow
 	}
 	head->pre = last;
-	last->next = head;//Ê×Î»ÏàÁ¬
-	node *p = head;//Í¨¹ıp½áµãµÄÒÆ¶¯À´Êä³öºÍÉ¾³ı½áµã
-	while(p->next != p){//p->next = pËµÃ÷Ö»Ê£ÏÂÒ»¸ö½áµãÁË 
-		for(int i=0; i<m-1; ++i) p = p->next;//ÒÆ¶¯m-1´Î£¬´Ó1ÒÆ¶¯m-1´Î¾Íµ½ÁËÒªËÀµÄÄÇ¸öÈËÁË 
-		now = p->next;//ÏÈ½«Now¸³ÖµÎªp->next;ÏÂ´Î´Ónow¿ªÊ¼1£¬2,3£¬¡£¡£¡£ 
+	last->next = head;//é¦–ä½ç›¸è¿
+	node *p = head;//é€šè¿‡pç»“ç‚¹çš„ç§»åŠ¨æ¥è¾“å‡ºå’Œåˆ é™¤ç»“ç‚¹
+	while(p->next != p){//p->next = pè¯´æ˜åªå‰©ä¸‹ä¸€ä¸ªç»“ç‚¹äº† 
+		for(int i=0; i<m-1; ++i) p = p->next;//ç§»åŠ¨m-1æ¬¡ï¼Œä»1ç§»åŠ¨m-1æ¬¡å°±åˆ°äº†è¦æ­»çš„é‚£ä¸ªäººäº† 
+		now = p->next;//å…ˆå°†Nowèµ‹å€¼ä¸ºp->next;ä¸‹æ¬¡ä»nowå¼€å§‹1ï¼Œ2,3ï¼Œã€‚ã€‚ã€‚ 
 		p->pre->next = p->next;
 		p->next->pre = p->pre;
 		p = now; 

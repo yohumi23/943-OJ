@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-//¹Ø¼üÔÚÓÚÃ¿´ÎÇå¿ÕÕ»¿Õ¼ä 
+//å…³é”®åœ¨äºæ¯æ¬¡æ¸…ç©ºæ ˆç©ºé—´ 
 int main(void){
 	string s;
 	stack<char> st;
