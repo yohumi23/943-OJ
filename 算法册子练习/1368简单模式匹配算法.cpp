@@ -2,14 +2,22 @@
 using namespace std;
 
 int main(void){
-	string s1, s2;
-	cin >> s1;
-	cin >> s2;
-	for(int i=0; i<s1.size(); ++i){
-		for(int j=0; j<s2.size(); ++j){
-			if(s)
+	char A[1005], B[1005];
+	int i = 1, j = 1;
+	scanf("%s%s", A+1, B+1);
+	int n1 =strlen(A+1), n2 = strlen(B+1);
+	while(i<=n1 && j<=n2){
+		if(A[i] == B[j]){
+			++i, ++j;
 		}
-	}
+		else{
+			i = i - j + 2;
+			j = 1;
+		}
+	} 
+	if(j > n2) {
+		cout << "YES" << endl;
+	}else cout << "NO" << endl;
 	return 0;
 }
 
