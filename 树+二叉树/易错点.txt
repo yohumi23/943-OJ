@@ -1,2 +1,37 @@
 1.在还原二叉树的时候，不要忘记了return p；否则会报错！！！。
+
 2.创建二叉树的时候，p->data = data别丢了。。。
+
+3.遍历中序线索二叉树的时候：
+//中序线索二叉树的遍历
+void InOrderbyThread(ThreadTree T){
+	ThreadNode *p = First(T);
+	while(p){
+		printf("%d ", p->data);
+		p = p->rchild;//这一步是错的，前面已经写了Next函数了！！！！
+	} 
+} 
+
+4.求二叉树的宽度，？？？？
+int width(BiTree T){
+	if(!T) return 0;
+	BiTNode *Q[101];
+	BiTNode *p; 
+	int front = -1, rear = -1, max = 1;
+	int last = 0;
+	Q[++rear] = T;
+	while(front < rear){
+		p = Q[++front];
+		if(p->lchild) Q[++rear] = p->lchild;
+		if(p->rchild) Q[++rear] = p->rchild;
+		if(front == last){
+			if(rear-last > max) 
+				max = rear-last;
+			last = rear;
+		}
+	}
+	return max;
+} 
+
+3.结点与其祖先之间的最大差值 
+在创建树的时候要return!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
